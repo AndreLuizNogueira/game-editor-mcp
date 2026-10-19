@@ -11,6 +11,7 @@ Este pacote traz só os programas já compilados; o código-fonte não faz parte
 | `game_mcp.exe` | O servidor MCP (o agente conversa com ele). |
 | `player/` | O jogador do Windows: usado pelo `play_test` e pela exportação para Windows. |
 | `player_web/` | O jogador Web: usado pela exportação para Web. |
+| `player_android/` | O jogador Android (APK): usado pela exportação para Android. |
 | `exemplos/` | Projetos de exemplo (`.gameproj`): plataforma, nave, corrida, cartas, romance, apocalipse zumbi... |
 
 ## Requisitos
@@ -21,7 +22,7 @@ Este pacote traz só os programas já compilados; o código-fonte não faz parte
 ## Instalação
 
 1. Baixe o `game-editor-mcp-<versão>.zip` da página **Releases** deste repositório.
-2. Descompacte numa pasta fixa, por exemplo `C:\game-editor-mcp` (mantenha `player`, `player_web` e `exemplos` ao lado do `game_mcp.exe`).
+2. Descompacte numa pasta fixa, por exemplo `C:\game-editor-mcp` (mantenha `player`, `player_web`, `player_android` e `exemplos` ao lado do `game_mcp.exe`).
 3. Cadastre o servidor no seu cliente:
 
 **Claude Code** (no terminal):
@@ -49,7 +50,7 @@ claude mcp add game-editor --scope user -- C:\game-editor-mcp\game_mcp.exe
 - **Comece por um exemplo** (`examples` lista os que vêm no kit) ou por um projeto novo (`new_project`).
 - O agente **salva** com `save_project` (arquivo `.gameproj`); esse arquivo também abre no editor visual.
 - **`play_test`** abre a janela do jogo por alguns segundos, segue um roteiro de teclas e devolve fotos e o estado do jogo. É normal a janela aparecer e fechar sozinha.
-- **`export_game`** gera o jogo pronto: para Windows use o `player` do kit, para Web o `player_web`. O jogo Web precisa ser servido por um servidor HTTP (não abre com duplo clique).
+- **`export_game`** gera o jogo pronto para Windows, Web ou Android, com os jogadores do kit. O jogo Web precisa ser servido por um servidor HTTP (não abre com duplo clique). O Android sai num `.apk` (Android 7 ou mais novo) assinado com a chave do jogo, criada na primeira exportação em `<pasta de saída>/<id do app>.chave.json`: **guarde uma cópia** — sem ela, uma versão nova do jogo não instala por cima da antiga.
 - Imagens e sons próprios entram com `import_asset` (PNG, JPG, WebP, WAV, MP3, OGG e folhas de sprites).
 
 ## Atualizar
